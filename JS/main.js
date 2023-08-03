@@ -1,4 +1,5 @@
 'use strict'
+
 const MINE = '💣'
 const FLAG = '🚩'
 const EMPTY = ''
