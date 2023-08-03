@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/CSS/main.css">
+  <title>Minesweeper</title>
+</head>
+<body onload="onInit()">
+  
+<div class="all">
+  <div class="timer">timer: <span></span> </div>
+
+ <button class="emoji" onclick="onClickEmoji()">😀</button>
+
+  <table class="mineSweeper-board">
+  <tbody class="mineSweeper-cells"></tbody>
+</table>
+
+<button onclick="gameLevel('Easy')">Easy</button>
+<button onclick="gameLevel('Medium')">Medium</button>
+<button onclick="gameLevel('Hard')">Hard</button>
+
+<footer>
+ <h2>Gal Luski</h2>
+</footer>
+
+</div>
+  <script src="/JS/main.js"></script>
+</body>
+</html>
