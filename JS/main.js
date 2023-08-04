@@ -24,7 +24,8 @@ function onInit() {
   // This is called when page loads
 
   gGame.isOn = true;
-
+  gGame.shownCount = 0
+  
   gBoard = buildBoard(gLevel.SIZE)
   setMinesNegsCount(gBoard)
   renderBoard(gBoard)
@@ -46,12 +47,7 @@ function buildBoard(size) {
       }
     }
   }
-
   renderCount()
-
-  // board[1][1].isMine = true
-  // board[0][0].isMine = true
-
   mineRandom(board)
 
   return board
@@ -118,6 +114,7 @@ function countMinesAround(board, rowIdx, colIdx) {
 }
 
 function onCellClicked(elCell) {
+
   if (!gGame.isOn) return
   if (gTimeStart === false) startTimer()
   const i = +elCell.dataset.i
@@ -131,17 +128,22 @@ function onCellClicked(elCell) {
     gGame.shownCount++
     renderCount()
     elCell.classList.remove('hidden')
-
-    if (cell.isMine) {
-      elCell.classList.remove('hidden')
-      cell.isShown = true
-
-      stopTimer()
-      gGame.isOn = false
-      alert('You lose... 😥')
-    }
   }
-  expandShown(i, j)
+
+  if (cell.minesAroundCount === 0) {
+    expandShown(i, j)
+  }
+  if (cell.isMine) {
+    elCell.classList.remove('hidden')
+    cell.isShown = true
+
+    const emojiStatus = document.querySelector('.emoji')
+    emojiStatus.innerText = `${'😫'}`
+    stopTimer()
+    gGame.isOn = false
+    alert('You lose... 😥')
+  }
+
   checkGameOver()
 }
 
@@ -179,11 +181,15 @@ function checkGameOver() {
   for (var i = 0; i < gBoard.length; i++) {
     for (var j = 0; j < gBoard[0].length; j++) {
       var currCell = gBoard[i][j]
-      if ((currCell.isMine && currCell.isShown) || (!currCell.isMine && !currCell.isShown)) {
+      if (currCell.isMine && currCell.isShown || !currCell.isMine && !currCell.isShown) {
         return false
       }
     }
   }
+
+  const emojiStatus = document.querySelector('.emoji')
+  emojiStatus.innerText = `${'😎'}`
+
   gGame.isOn = false
   stopTimer()
   alert('You won!🏆')
@@ -233,6 +239,7 @@ function gameLevel(level) {
   if (level === 'Easy') {
     gLevel.SIZE = 4
     gLevel.MINES = 2
+    gGame.shownCount = 0
 
     onInit()
   }
@@ -240,6 +247,7 @@ function gameLevel(level) {
   if (level === 'Medium') {
     gLevel.SIZE = 8
     gLevel.MINES = 14
+    gGame.shownCount = 0
 
     onInit()
 
@@ -247,6 +255,7 @@ function gameLevel(level) {
   else if (level === 'Expert') {
     gLevel.SIZE = 12
     gLevel.MINES = 32
+    gGame.shownCount = 0
 
     onInit()
   }
