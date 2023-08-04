@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 body{
   background-image: url(../img/bg.png);
 }
@@ -6,9 +10,11 @@ body{
   width: 50%;
   margin: auto;
 }
+
 table tr td{
   width: 100px;
   height: 100px;
+  cursor: pointer;
 }
 
 .cell{
@@ -17,8 +23,8 @@ table tr td{
   background-color: #272932;
   text-align: center;
   color: blanchedalmond;
-
 }
+
 .hidden {
   color: transparent;
   background-color: #B6C2D9;
@@ -28,6 +34,26 @@ table tr td{
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+.emoji{
+  margin-left: 13%;
+  cursor: pointer;
+}
+
+button{
+cursor: pointer;
+}
+
+.timer{
+  align-items: center;
+  color:blanchedalmond;
+ margin-left: 13%;
+  
+}
+.numMines, .numFlags, .numShowns{
+  color:blanchedalmond;
+  margin-left: 15px;
+
 }
 
 footer{
