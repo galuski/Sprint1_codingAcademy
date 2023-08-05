@@ -25,10 +25,15 @@ function onInit() {
 
   gGame.isOn = true;
   gGame.shownCount = 0
-  
+  gGame.markedCount = 0
+
+  const emojiStatus = document.querySelector('.emoji')
+  emojiStatus.innerText = `${'😀'}`
+
   gBoard = buildBoard(gLevel.SIZE)
   setMinesNegsCount(gBoard)
   renderBoard(gBoard)
+  stopTimer()
   resetTimer()
 }
 
