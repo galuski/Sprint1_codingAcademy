@@ -1,6 +1,6 @@
 'use strict'
 
-const MINE = '💣'
+const MINE = '💥'
 const FLAG = '🚩'
 const EMPTY = ''
 
@@ -273,25 +273,24 @@ function onClickEmoji() {
 }
 
 function renderCount() {
-  const bomb = document.querySelector('.numMines')
-  bomb.innerText = `💣 ${gLevel.MINES}`
+  // const bomb = document.querySelector('.numMines')
+  // bomb.innerText = `💣 ${gLevel.MINES-gGame.markedCount}`
 
   const countFlags = document.querySelector('.numFlags')
-  countFlags.innerText = `🚩 ${gGame.markedCount}`
+  countFlags.innerText = `🚩${gLevel.MINES-gGame.markedCount}`
 
-  const countShowns = document.querySelector('.numShowns')
-  countShowns.innerText = `Shown Count: ${gGame.shownCount}`
+  // const countShowns = document.querySelector('.numShowns')
+  // countShowns.innerText = `Shown Count: ${gGame.shownCount}`
 }
 
 function startTimer() {
-  gTimeStart = true
+  gTimeStart = true;
   var start = Date.now();
   gTimerIntervalId = setInterval(function () {
     var delta = Date.now() - start;
-    const timer = document.querySelector('.timer')
-    timer.innerText = `⌛: ${(delta / 1000)}`
+    const timer = document.querySelector('.timer');
+    timer.innerText = `⌛${Math.ceil(delta / 1000)}`;
   }, 100);
-
 }
 
 function stopTimer() {
@@ -301,7 +300,7 @@ function stopTimer() {
 
 function resetTimer() {
   const timer = document.querySelector('.timer')
-  timer.innerText = '⌛: 0'
+  timer.innerText = '⌛0'
 }
 
 function getRandomInt(min, max) {
