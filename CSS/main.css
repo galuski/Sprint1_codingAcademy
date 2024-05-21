@@ -1,26 +1,46 @@
-*{
+html,
+body {
+  background-color: #F9FBF2;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-body{
-  background-image: url(../img/bg.png);
+.minesweeper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* This ensures space between the items */
+  align-items: center;
+  height: 100vh;
+  /* Adjust the height as needed */
 }
 
-.all{
-  width: 50%;
-  margin: auto;
+.score-border {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* Ensures buttons span the width of the container */
 }
 
-table tr td{
+table tr td {
   width: 100px;
   height: 100px;
   cursor: pointer;
 }
 
-.cell{
-  height: 50px;
-  width: 50px;
-  background-color: #272932;
+.cell {
+  height: 40px;
+  width: 40px;
+  background-color: #50a1c1;
   text-align: center;
   color: blanchedalmond;
 }
@@ -29,42 +49,70 @@ table tr td{
   color: transparent;
   background-color: #B6C2D9;
 }
-
-.time-display {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.hidden:hover {
+  color: transparent;
+  background-color: #E3D0D8;
 }
-.emoji{
-  margin-left: 13%;
+
+.emoji {
+  background-color: #F9FBF2;
+  cursor: pointer;
+  border: none;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  /* Ensures buttons span the width of the container */
+}
+
+button {
+  background-color: #ffff;
   cursor: pointer;
 }
 
-button{
-cursor: pointer;
+.btn-easy{
+  border: none;
+  color: #ffff;
+  background-color: green;
+  padding: 3px;
 }
 
-.timer{
-  align-items: center;
-  color:blanchedalmond;
- margin-left: 13%;
-  
+.btn-medium{
+  border: none;
+  color: #ffff;
+  background-color: orange;
+  padding: 3px;
 }
-.numMines, .numFlags, .numShowns{
-  color:blanchedalmond;
-  margin-left: 15px;
-
+.btn-expert{
+  border: none;
+  color: #ffff;
+  background-color: red;
+  padding: 3px;
 }
 
-footer{
-  color: blanchedalmond;
+button:hover{
+  opacity: 0.6;
+}
+
+.timer,
+.numMines,
+.numFlags,
+.numShowns {
+  color: #1C2541;
+  font: bold;
+}
+
+footer {
+  color: 1C2541;
 }
 
 .unselectable {
-
   -webkit-user-select: none;
-  
-  -webkit-touch-callout: none; -moz-user-select: none;
-  
-  -ms-user-select: none; user-select: none; 
-  }
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
