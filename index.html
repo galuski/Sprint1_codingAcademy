@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="CSS/main.css">
   <title>Minesweeper</title>
 </head>
+
 <body onload="onInit()">
-  
-<div class="all">
-  <div class="timer"></div>
-  <span class="numMines"></span>
-  <span class="numFlags"></span>
-  <span class="numShowns"></span>
-  
-<!-- <span class="numFlags"></span> -->
-<div><button class="emoji" onclick="onClickEmoji()"></button></div>
 
-  <table class="mineSweeper-board unselectable">
-  <tbody class="mineSweeper-cells"></tbody>
-</table>
+  <div class="minesweeper">
+    <header>
+      <h1>Minesweeper</h1>
+    </header>
 
-<button onclick="gameLevel('Easy')">Easy</button>
-<button onclick="gameLevel('Medium')">Medium</button>
-<button onclick="gameLevel('Expert')">Expert</button>
+    <section>
+      <div class="score-border">
+        <span class="timer"></span>
+        <button class="emoji" onclick="onClickEmoji()"></button>
+        <span class="numFlags"></span>
+      </div>
 
-<footer>
- <h2>Gal Luski</h2>
-</footer>
+      <table class="mineSweeper-board unselectable">
+        <tbody class="mineSweeper-cells"></tbody>
+      </table>
 
-</div>
+      <div class="btns">
+        <button class="btn-easy" onclick="gameLevel('Easy')">Easy</button>
+        <button class="btn-medium" onclick="gameLevel('Medium')">Medium</button>
+        <button class="btn-expert" onclick="gameLevel('Expert')">Expert</button>
+      </div>
+    </section>
+    <footer>
+      <footer>
+        <h4>&copy; 2023, Created by Gal Luski. All rights reserved.</h4>
+      </footer>
+      
+    </footer>
+
+  </div>
   <script src="JS/main.js"></script>
 </body>
+
 </html>
