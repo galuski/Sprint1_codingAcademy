@@ -18,17 +18,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* This ensures space between the items */
   align-items: center;
-  height: 100vh;
-  /* Adjust the height as needed */
+  height: 100%;
 }
 
 .score-border {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  /* Ensures buttons span the width of the container */
 }
 
 table tr td {
@@ -65,7 +62,6 @@ table tr td {
   justify-content: center;
   gap: 15px;
   width: 100%;
-  /* Ensures buttons span the width of the container */
 }
 
 button {
